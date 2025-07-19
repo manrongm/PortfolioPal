@@ -1,4 +1,10 @@
 {
-  "compilerOptions": {},
+  "compilerOptions": {
+    "baseUrl": ".", 
+    "paths": {
+      "convex/_generated/*": ["../../packages/backend/convex/_generated/*"],
+      "convex/*": ["../../packages/backend/convex/*"]
+    }
+  },
   "extends": "expo/tsconfig.base"
 }

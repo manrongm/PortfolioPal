@@ -23,9 +23,9 @@ const LoginScreen = ({ navigation }) => {
 
   useEffect(() => {
     if (isSignedIn) {
-      navigation.navigate("NotesDashboardScreen");
+      navigation.replace("Main");
     }
-  }, [isSignedIn, navigation.navigate]);
+  }, [isSignedIn]);
 
   const onPress = async (authType: string) => {
     try {
@@ -53,7 +53,7 @@ const LoginScreen = ({ navigation }) => {
                 });
 
                 const { createdSessionId: newSessionId } =
-                  await signUp.create();
+                  await signUp.create({});
 
                 if (newSessionId) {
                   await setActive({ session: newSessionId });
@@ -70,7 +70,7 @@ const LoginScreen = ({ navigation }) => {
               // Phone is optional, just create the user
               try {
                 const { createdSessionId: newSessionId } =
-                  await signUp.create();
+                  await signUp.create({});
 
                 if (newSessionId) {
                   await setActive({ session: newSessionId });
